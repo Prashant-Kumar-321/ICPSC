@@ -1,0 +1,7 @@
+What is the best approach to attempt coding contest problem? Vivek Gupta taught us today. 
+
+Let delve into the steps:-
+1. Read the problem statement carefully, espicially pay attentions to contraints (input/output bound), IO fomat. 
+2. Think the solution 
+	a. consider the constraints 
+	b. 
