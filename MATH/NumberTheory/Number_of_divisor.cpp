@@ -4,26 +4,38 @@ using namespace std;
 
 #define IOS ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0)
 
-int main() {
+using ll = long long; 
 
-	IOS;
-	int num = 17; 
-	vector<int> divisors; 
-	int div = 0; 
+// function finds all divisors 
+vector<ll> findDivisors(ll num){
+	vector<ll> divisors; 
 
-	for(int i=1; i<=sqrt(num); ++i){
+	for(int i=1; i*i <= num; ++i){ // sqrt(num) 
 		if(num % i == 0){
-			if(i != num/i){
-				divisors.push_back(i); 
-				divisors.push_back(num/i); 
-				div += 2; 
-			}else { // i  == num/i ==> num is perfect square 
-				divisors.push_back(i); 
-				div++; 
+			divisors.push_back(i); 
 
+			if(i*i != num){
+				divisors.push_back(num/i); 
 			}
 		}
 	}
+
+	return divisors; 
+}
+// TC --> sqrt(N) 
+
+// Note : -> Max number of distinct divisors any number N could have is 
+// [2 * sqrt(N)]
+
+
+int main() {
+	IOS;
+
+	ll num; 
+	cin>> num; 
+
+	auto divisors = findDivisors(num); 
+
 	// TC => O(sqrt(N)) 
 	// i | N ==> (N/i) | N 
 
@@ -32,9 +44,7 @@ int main() {
 		cout<< v<< " "; 
 	}
 	cout<< '\n'; 
-	cout<< "Numbers of divisors = "<< div<< '\n'; 
-
-
+	cout<< "Numbers of divisors = "<< divisors.size()<< '\n'; 
 
 	return 0;
 }

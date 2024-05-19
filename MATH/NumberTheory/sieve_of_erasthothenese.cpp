@@ -25,12 +25,13 @@ int main(){
 }
 
 
+// precomputing all primes numbes upto n 
 vector<bool> sieveOfErasthosthenes(int n){
 
 	vector<bool> isPrime(n+1, true); 
 	isPrime[0] = isPrime[1] = false; 
 
-	for(int i=2; i<=sqrt(n); ++i){
+	for(int i=2; i*i <= n; ++i){
 		if(!isPrime[i]) continue; 
 
 		// mark false to all multiple of prime number i 
